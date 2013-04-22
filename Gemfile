@@ -47,6 +47,15 @@ gem 'omniauth-google-oauth2'
 group :test do
   gem 'rspec'
 	gem 'rspec-rails'
+  gem "cucumber-rails", require: false
+  gem 'database_cleaner'
+  gem "capybara", "~>2.0.1"
+  gem "spork"
+  gem 'guard'
+  gem 'guard-spork'
+  gem 'guard-rspec'
+  gem 'guard-cucumber'
+  gem 'factory_girl_rails', require: false
 end
 
 #setting

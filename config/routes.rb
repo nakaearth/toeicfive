@@ -15,6 +15,8 @@ Toeicfive::Application.routes.draw do
     end
   end
   post "/examination/answer" => "examination#answer"
+  # group
+  resources :group
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

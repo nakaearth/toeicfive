@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # TOEIC5人組
 
 三宅さん企画のTOEIC勉強用サービス！
@@ -22,3 +23,9 @@
 ```bash
 bundle install --path vendor/bundle
 ```
+=======
+toeicfive
+=========
+
+英単語勉強サイト
+>>>>>>> 61d064598b45f23a192d63bea0922fc0d6863af4

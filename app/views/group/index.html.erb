@@ -1,2 +1,17 @@
-<h1>Group#index</h1>
-<p>Find me in app/views/group/index.html.erb</p>
+<h1>Group List</h1>
+
+<table>
+  <tr>
+    <th>name</th>
+    <th></th>
+  </tr>
+  <% @groups.each do|group| %>
+  <tr>
+    <td><%= group.name %></td>
+    <td>EDIT</td>
+    <td>delete</td>
+  </tr>
+  <% end %>
+</table>
+
+

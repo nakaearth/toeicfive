@@ -39,6 +39,11 @@
     <div class="user_info">
         <img src="<%= current_user.image_path %>"/>&nbsp;&nbsp;|<%= current_user.name %>
     </div> 
+  <% else %> 
+    <div class="content">
+      <%= link_to "Facebook LOGIN and participate in toeic-five. ", "/login" %>
+    </div>
+  <% end %>
     <div class="navbar navbar-fluid-top">
       <div class="navbar-inner">
         <div class="container-fluid">
@@ -50,9 +55,11 @@
           <a class="brand" href="#">Toeicfive</a>
           <div class="container-fluid nav-collapse">
             <ul class="nav">
+            <% if current_user %>
               <li><%= link_to_unless_current "Examination list",action:"index",  controller:"examination" %></li> 
               <li><%= link_to_unless_current "today's word",action:"today_word", controller:"examination" %></li> 
-              <li><%= link_to "Link3", "/path3"  %></li> 
+              <li><%= link_to_unless_current "Group list", action:"index", controller: "group"  %></li> 
+            <% end %>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -64,10 +71,12 @@
         <div class="span3">
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
+            <% if current_user %>
               <li class="nav-header">Sidebar</li>
-              <li><%= link_to_unless_current "Examination list",action:"index",  controller:"examination" %></li>
-              <li><%= link_to_unless_current "today's word",action:"today_word", controller:"examination" %></li>
-              <li><%= link_to "Link3", "/path3"  %></li>
+              <% unless controller_name == "english" %>
+                <%= render "common/#{controller_name}_menu" %>
+              <% end %>
+            <% end %>
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
@@ -85,11 +94,8 @@
     <!-- Javascripts
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <%= javascript_include_tag "application" %>
-  <% else %>
-    <div class="content">
-      <%= link_to "Facebook LOGIN and participate in toeic-five. ", "/login" %>
-    </div>
-  <% end %> 
+    <% if current_user %>
+      <%= javascript_include_tag "application" %>
+    <% end %>
   </body>
 </html>
